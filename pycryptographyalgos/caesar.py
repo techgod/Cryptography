@@ -8,11 +8,11 @@ def encrypt(text, s):
         if c == ' ':
             encrypted_txt += ' '
         elif c.isupper():
-            new_pos = (ord(c) - 65 + s) % 26 + 65
-            encrypted_txt += chr(new_pos)
+            new_pos = (ord(c) - 65 + s) % 26
+            encrypted_txt += chr(new_pos+65)
         else:
-            new_pos = (ord(c) - 97 + s) % 26 + 97
-            encrypted_txt += chr(new_pos)
+            new_pos = (ord(c) - 97 + s) % 26
+            encrypted_txt += chr(new_pos + 97)
     return encrypted_txt
 
 
@@ -22,9 +22,9 @@ def decrypt(text, s):
         if c == ' ':
             decrypted_txt += ' '
         elif c.isupper():
-            new_pos = (ord(c) - 65 - s) % 26 + 65
-            decrypted_txt += chr(new_pos)
+            new_pos = (ord(c) - 65 - s) % 26
+            decrypted_txt += chr(new_pos + 65)
         else:
-            new_pos = (ord(c) - 97 - s) % 26 + 97
-            decrypted_txt += chr(new_pos)
+            new_pos = (ord(c) - 97 - s) % 26
+            decrypted_txt += chr(new_pos + 97)
     return decrypted_txt
